@@ -52,5 +52,5 @@ Use the following credentials to test the application immediately after running 
 
 | Role | Username | Password | Notes |
 | :--- | :--- | :--- | :--- |
-| **Admin** | `admin` | `adminpass` | Full access to management views (Fees, Students, Transactions). |
+| **Admin** | `admin` | `admin123` | Full access to management views (Fees, Students, Transactions). |
 | **Student** | `alice` | `testpass` | View fee status and transaction history for Student ID 1. |
