@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.FeeReportController">
+    <VBox prefHeight="630.0" prefWidth="780.0" spacing="15.0"
+          AnchorPane.bottomAnchor="10.0"
+          AnchorPane.leftAnchor="10.0"
+          AnchorPane.rightAnchor="10.0"
+          AnchorPane.topAnchor="10.0">
+
+        <Label text="Fee Obligation Report and Search" textFill="#006699">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Label>
+        <Separator prefWidth="200.0" />
+
+        <!-- Filter Controls -->
+        <GridPane hgap="15.0" vgap="10.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="80.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.0" minWidth="10.0" prefWidth="150.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="80.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.0" minWidth="10.0" prefWidth="150.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label text="Student ID:" />
+                <TextField fx:id="studentIdFilterField" promptText="Enter ID" GridPane.columnIndex="1" />
+                <Label text="Status:" GridPane.columnIndex="2" />
+                <ComboBox fx:id="statusFilterComboBox" prefWidth="150.0" promptText="Any Status" GridPane.columnIndex="3" />
+                <Button mnemonicParsing="false" onAction="#handleSearch" style="-fx-background-color: #2ECC71; -fx-text-fill: white; -fx-font-weight: bold;" text="Apply Filters" GridPane.columnIndex="4">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <GridPane.margin>
+                        <Insets left="10.0" />
+                    </GridPane.margin>
+                </Button>
+                <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="4">
+                    <Button mnemonicParsing="false" onAction="#handleReset" style="-fx-background-color: #95A5A6; -fx-text-fill: white; -fx-font-weight: bold;" text="Reset Filters" />
+                </HBox>
+            </children>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+        </GridPane>
+
+        <!-- Fee Records Table -->
+        <TableView fx:id="feeTableView" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="idCol" prefWidth="50.0" text="ID" />
+                <TableColumn fx:id="studentIdCol" prefWidth="90.0" text="Student ID" />
+                <TableColumn fx:id="feeTypeCol" prefWidth="120.0" text="Fee Type" />
+                <TableColumn fx:id="amountCol" prefWidth="100.0" text="Amount (₹)" />
+                <TableColumn fx:id="paidCol" prefWidth="100.0" text="Paid (₹)" />
+                <TableColumn fx:id="statusCol" prefWidth="100.0" text="Status" />
+                <TableColumn fx:id="dueDateCol" prefWidth="100.0" text="Due Date" />
+                <TableColumn fx:id="descriptionCol" prefWidth="140.0" text="Description" />
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+        </TableView>
+
+        <Label fx:id="resultCountLabel" text="Displaying 0 records." textFill="#2C3E50">
+            <font>
+                <Font size="12.0" />
+            </font>
+        </Label>
+    </VBox>
+</AnchorPane>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="20.0"
+      xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1">
+
+    <Label text="Welcome to the Student Fee Manager" style="-fx-text-fill: #333333;">
+        <font><Font name="System Bold" size="28.0" /></font>
+    </Label>
+    <Label text="Use the sidebar to navigate management options." style="-fx-font-style: italic;" />
+</VBox>
